@@ -1,4 +1,4 @@
-# Computer-Photography
+# Computer-Photography-project1
 CSCI6907 in GWU with Dr.pless
 
 1. edge detection
