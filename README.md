@@ -28,6 +28,7 @@ when the dtype is cv2.NORM_MINMAX, the formulation is showed below
 5) better transformations.Just wrote in the transformation part,it can be shown in my code
 
 Some results:
+
 from matlab:
 
 
@@ -36,3 +37,6 @@ from matlab:
 ![result-10131v](https://user-images.githubusercontent.com/34802668/153045851-5d448782-a40a-46ee-b4aa-88a8acee4787.jpg)
 
 from python:
+
+https://github.com/ANTI86J/Computer-Photography-project1/blob/main/result_python/00163v.jpg?raw=true![image](https://user-images.githubusercontent.com/34802668/153046269-3247f8fe-44cb-443d-88dd-6fcb88a0028f.png)
+
