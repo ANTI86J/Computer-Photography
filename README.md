@@ -38,5 +38,9 @@ from matlab:
 
 from python:
 
-https://github.com/ANTI86J/Computer-Photography-project1/blob/main/result_python/00163v.jpg?raw=true![image](https://user-images.githubusercontent.com/34802668/153046269-3247f8fe-44cb-443d-88dd-6fcb88a0028f.png)
+![00458u](https://user-images.githubusercontent.com/34802668/153046620-d9044c72-c3d7-4bfd-a8e1-329e886166ff.jpg)
+![01598v](https://user-images.githubusercontent.com/34802668/153046657-29f58c5b-7888-4961-81ea-a9b94b8eae39.jpg)
+![31421v](https://user-images.githubusercontent.com/34802668/153046697-2cd45ccf-34ad-43af-926c-00d76b03df5c.jpg)
+![00163v](https://user-images.githubusercontent.com/34802668/153046845-b1146d76-69f0-495b-a3e9-ea81479cfb93.jpg)
+
 
