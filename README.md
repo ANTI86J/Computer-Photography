@@ -28,7 +28,8 @@ when the dtype is cv2.NORM_MINMAX, the formulation is showed below
 5) better transformations.Just wrote in the transformation part,it can be shown in my code
 
 Some results:
-from matlab:![result-01269v](https://user-images.githubusercontent.com/34802668/153045696-db248761-e93d-4277-9420-38208258613e.jpg)
+from matlab:
+![result-01269v](https://user-images.githubusercontent.com/34802668/153045696-db248761-e93d-4277-9420-38208258613e.jpg)
 ![result-01597v](https://user-images.githubusercontent.com/34802668/153045783-71a31ba9-e62f-428f-a09e-a947950af539.jpg)
 ![result-10131v](https://user-images.githubusercontent.com/34802668/153045851-5d448782-a40a-46ee-b4aa-88a8acee4787.jpg)
 
