@@ -12,21 +12,36 @@ About what I think, at first I just thought using some specific patterns about t
 2. image warp function
 As we can see, we can use transformer.warp function to apply image homography, but 
 if we want to use this, we must extract the points of interest, so in order to do this, I use Google Vision API to extract the points of person as the points of interest, and then I just used this function to change the angle of the face to get a better view.Just like the bigger green bounds
-<img width="374" alt="image" src="https://user-images.githubusercontent.com/34802668/153487680-890f0e6b-a7c2-4661-87b2-50903a0d6d07.png">, and then I got those normalized coordinates:
-<img width="374" alt="image" src="https://user-images.githubusercontent.com/34802668/153488456-e52289e0-8935-4829-a181-9ae193cb956c.png">
-and next I just need to use this coordinate to do the warping!In order to get a ampilied image, I made this woman a bit more fatterm, so that I could amplify some details more clearly
-https://user-images.githubusercontent.com/34802668/153490700-57ba5f01-f6b2-4df7-a3b6-9817dc917077.png![image](https://user-images.githubusercontent.com/34802668/153490900-a7de4e09-ea0e-42dd-9630-6033fa3432a8.png)
 
+<img width="374" alt="image" src="https://user-images.githubusercontent.com/34802668/153487680-890f0e6b-a7c2-4661-87b2-50903a0d6d07.png">
+
+, and then I got those normalized coordinates:
+
+<img width="374" alt="image" src="https://user-images.githubusercontent.com/34802668/153488456-e52289e0-8935-4829-a181-9ae193cb956c.png">
+
+and next I just need to use this coordinate to do the warping!In order to get a ampilied image, I made this woman a bit more fatterm, so that I could amplify some details more clearly
+
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/34802668/153491486-b331642a-cdb0-44ee-a689-4a60b59a35c1.png">
+
+it is just one of the projections I made to get a bigger view of the woman so I must stand some loss of the clear of the img, but in some other cases, I wouldn't do that, just show how I think and adjust that, for different cases, I use different projections
 
 
 Another time I use image warp function is in the transformation of different color spaces, which I leave it in the next sections as belows.
 
 
 3.transform between different color spaces
-I used three ways to do this, first is a simple scale implentation, just for every channel of this image, just extract every 16 * 16 matrix, and then just compare the similarity of those matrix in the same position(row) of different color channel, then find the most aligned position of each three channels, and then adjust them to be aligned, and finally use cv2.merge to merge those three color channel. Second method is called ECC algorithm which used to align the images according to the "Parametric Image Alignment using Enhanced Correlation Coefficient Maximization"(link:https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4515873).The reason I used this method is that although there might not be much correlation in greyscale RGB space, but we can notice that in gradient domain, things can be different, and it has strong adaptability to image contrast and brightness changes and simple iterative solution although the objective function is nonlinear! First we need to calculate the gradient of the image in axis x and y, at the same time we created a eye matrix which used to be the initial warp matrix, then based on the theory I mentioned above, we can use this function in opencv to get the warpmatrix, and change every color channel of this image in the warp perspective to get the aligned color-space, then just merge these! The third way is in the Matlab aiming to get the best aligned direction of axis x and y
+I used three ways to do this, first is a simple scale implentation, just for every channel of this image, just extract every 16 * 16 matrix, and then just compare the similarity of those matrix in the same position(row) of different color channel, then find the most aligned position of each three channels, and then adjust them to be aligned, and finally use cv2.merge to merge those three color channel. Second method is called ECC algorithm which used to align the images according to the "Parametric Image Alignment using Enhanced Correlation Coefficient Maximization"(link:https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4515873)
+.The reason I used this method is that although there might not be much correlation in greyscale RGB space, but we can notice that in gradient domain, things can be different, and it has strong adaptability to image contrast and brightness changes and simple iterative solution although the objective function is nonlinear! First we need to calculate the gradient of the image in axis x and y, at the same time we created a eye matrix which used to be the initial warp matrix, then based on the theory I mentioned above, we can use this function in opencv to get the warpmatrix, and change every color channel of this image in the warp perspective to get the aligned color-space, then just merge these! The third way is in the Matlab aiming to get the best aligned direction of axis x and y
 
 briefly, it searches for the most similar pixel in the surronding.
+Just like the img and img_transformed, I just use this method to transform from BGR to RGB
+This is the BGR view:
 
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/34802668/153492051-39d07b4b-396e-481e-92ab-a651ac243cb4.png">
+
+This is the RGB view:
+
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/34802668/153491486-b331642a-cdb0-44ee-a689-4a60b59a35c1.png">
 
 4.bells and Whistles
 1) about edge detection, I have detected the edge of the image which has been written in the edge detection part
