@@ -78,9 +78,14 @@ So here is the final result of this multi-scale aligning algorithm(just list one
 calculate formulation
 when the dtype is cv2.NORM_MINMAX, the formulation is showed below
 
-3) better features.I used the gradients which has been written in the transformation part
+3) better features.I used the gradients which has been written in the transformation part.I have done some contrast experiments which for some features, I didn't use the gradients, and it turned out to work not as good as those which used with gradients
 
-4) better colors: We can transform the color channel from BGR space to HSV or Ycrcb space.And sometimes the color in the image is needed to be enhanced so I wrote 5 algorithms about white-balanced which is shown in the code.
+4) better colors: We can transform the color channel from BGR space to HSV or Ycrcb space.And sometimes the color in the image is needed to be enhanced, so the first thing that occured to my mind is to use the white balance algorithm which is taught in the class, but for different imgs,the same white balance algorithm can work very differently, so I tried to use different ways to implement the white balance. For example, after I have observed some pictures in the datasets, I found that for some images, the brightest part in the img is not always white, so based on that, I have found two white balanced algorithm, which needs to do the white spot detection and white spot adjustment.
+  Here are some results for using different algorithms:
+
+<img width="458" alt="image" src="https://user-images.githubusercontent.com/34802668/153515780-47dcfa94-94a9-4cfa-9e07-f90272ff8342.png">
+
+
 
 5) better transformations.Just wrote in the transformation part,it can be shown in my code
 
