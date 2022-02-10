@@ -15,7 +15,8 @@ if we want to use this, we must extract the points of interest, so in order to d
 <img width="374" alt="image" src="https://user-images.githubusercontent.com/34802668/153487680-890f0e6b-a7c2-4661-87b2-50903a0d6d07.png">, and then I got those normalized coordinates:
 <img width="374" alt="image" src="https://user-images.githubusercontent.com/34802668/153488456-e52289e0-8935-4829-a181-9ae193cb956c.png">
 and next I just need to use this coordinate to do the warping!In order to get a ampilied image, I made this woman a bit more fatterm, so that I could amplify some details more clearly
-![image](https://user-images.githubusercontent.com/34802668/153490700-57ba5f01-f6b2-4df7-a3b6-9817dc917077.png)
+https://user-images.githubusercontent.com/34802668/153490700-57ba5f01-f6b2-4df7-a3b6-9817dc917077.png![image](https://user-images.githubusercontent.com/34802668/153490900-a7de4e09-ea0e-42dd-9630-6033fa3432a8.png)
+
 
 
 Another time I use image warp function is in the transformation of different color spaces, which I leave it in the next sections as belows.
