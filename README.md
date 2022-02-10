@@ -3,11 +3,21 @@ CSCI6907 in GWU with Dr.pless
 
 1. edge detection
 I used four ways of edge detection.We notice the the edge of this image is a white line and a black line, so I have couple of ideas and made it work in four ways. First we set a threshold, if the pixel is above the threshold, then it would turn to 255, so that we used the function in python opencv called cv2.threshold which can help me to do this.After implementing this, we can get a blank and white picture with a black and white line around the image, and then we just need to extract those lines. Second way is that we travel through all the image, but considering that some images would be very large, so we can first scale down the size of this picture in the same height-and-width propotion, and then we set a threshold t which is the sum of very column/row and is no bigger than t * row/column, we record very row/column, so that we find the upper and lower limit of the real image.Third method is use the function 'edge' which is in the Matlab.In the function edge, we use sober method to finish the job.And when we travel through the image, we use edge and function 'bwareaopen' to get the line of the edge.The fourth way is that we travel through the image, calculate the similarity of every two rows/columns, find the first mutations in value(if we do this forward and backward), but this has some limitations for some images also have large margins of white space(like describing the sky or maybe a full view of a village), so i haven't included it in my image, but it works!
-(The link of the code is in the end of this write-up)
+(The link of the code is in the end of this write-up).
+About what I think, at first I just thought using some specific patterns about the black and white edge, but after run some samples, I find that the edge is not purely white and black, so the first thing in my mind is that, the black and white are the extreme point in the whole line, so it's must far beyond some average points, so I just discover a threshold to do this job, and I just calculate the max columns in the left and the min colomns in the right, both number means the edge of this img, and it turns out to work very well, here are some examples.So,after I found that this could work, I just think of a function in cv2 called cv2.threshold, and it works well too!
+![00056v](https://user-images.githubusercontent.com/34802668/153486860-e66c5540-a804-4882-94a9-99a75f70c95b.jpg)
+![00125v](https://user-images.githubusercontent.com/34802668/153486955-ba986250-445c-4ba1-a296-5ac7ef3ab8b0.jpg)
+
 
 2. image warp function
 As we can see, we can use transformer.warp function to apply image homography, but 
-if we want to use this, we must extract the points of interest, so in order to do this, I use Google Vision API to extract the points of face as the points of interest, and then I just used this function to change the angle of the face to get a better view.
+if we want to use this, we must extract the points of interest, so in order to do this, I use Google Vision API to extract the points of person as the points of interest, and then I just used this function to change the angle of the face to get a better view.Just like the bigger green bounds
+<img width="374" alt="image" src="https://user-images.githubusercontent.com/34802668/153487680-890f0e6b-a7c2-4661-87b2-50903a0d6d07.png">, and then I got those normalized coordinates:
+<img width="374" alt="image" src="https://user-images.githubusercontent.com/34802668/153488456-e52289e0-8935-4829-a181-9ae193cb956c.png">
+and next I just need to use this coordinate to do the warping!In order to get a ampilied image, I made this woman a bit more fatterm, so that I could amplify some details more clearly
+![image](https://user-images.githubusercontent.com/34802668/153490700-57ba5f01-f6b2-4df7-a3b6-9817dc917077.png)
+
+
 Another time I use image warp function is in the transformation of different color spaces, which I leave it in the next sections as belows.
 
 
