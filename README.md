@@ -135,7 +135,7 @@ so, I run more tests on my white-balanced algorithms
 
 and after the experiments, I found that for some images which seem to be warmer than usual, we can use the first two algorithms, and for some images which seem to be colder, we can use the last three algorithms.Furthermore, we can adjust these algorithm to show cold or warm based on what we thought to be real.
 
-5) for even older images, it works! Only to change the edge detection function, cause it is blue and white in its edge
+5) for even older images, it works! Only to change the edge detection function, cause it is blue and white in its edge,and for the circle, just get its max and min in x, y axis on both sides!
 
 ![article-0-14FA3678000005DC-518_312x593](https://user-images.githubusercontent.com/34802668/153523401-8c2e29ee-a533-447c-98cd-69cda99d1425.jpg)
 
