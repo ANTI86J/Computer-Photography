@@ -135,9 +135,39 @@ so, I run more tests on my white-balanced algorithms
 
 and after the experiments, I found that for some images which seem to be warmer than usual, we can use the first two algorithms, and for some images which seem to be colder, we can use the last three algorithms.Furthermore, we can adjust these algorithm to show cold or warm based on what we thought to be real.
 
+5) for even older images, it works! Only to change the edge detection function, cause it is blue and white in its edge
+
+![article-0-14FA3678000005DC-518_312x593](https://user-images.githubusercontent.com/34802668/153523401-8c2e29ee-a533-447c-98cd-69cda99d1425.jpg)
 
 
-Some results:
+result of croping:
+
+<img width="117" alt="image" src="https://user-images.githubusercontent.com/34802668/153519848-78ab92f5-e26f-4876-ac3c-b17d17caa095.png">
+
+<img width="118" alt="image" src="https://user-images.githubusercontent.com/34802668/153519922-d4f6d4e4-ce1e-432f-8f75-82d6b2383589.png">
+
+<img width="118" alt="image" src="https://user-images.githubusercontent.com/34802668/153519954-df33e716-c963-47a9-b024-1ccb4afef4c0.png">
+
+aligning:
+
+![aligned3](https://user-images.githubusercontent.com/34802668/153523339-21bfd8ec-6c10-4a97-a1d2-1d8a515f5a51.png)
+
+white_balance:
+
+![w4](https://user-images.githubusercontent.com/34802668/153523443-a8b38595-3fc2-4683-a7ce-b862591b80aa.png)
+
+![w2](https://user-images.githubusercontent.com/34802668/153523455-8031e784-b8ab-4c5a-b295-3a8301536914.png)
+
+better color:
+
+<img width="234" alt="image" src="https://user-images.githubusercontent.com/34802668/153523583-75dbba81-3900-401d-820e-606cf7cfc3ec.png">
+
+<img width="234" alt="image" src="https://user-images.githubusercontent.com/34802668/153523751-b3869a10-25f3-4317-9f84-41727c4a1c5f.png">
+
+<img width="234" alt="image" src="https://user-images.githubusercontent.com/34802668/153524041-8d0fa1ae-6cb2-4b02-a908-63b80a3dcd7e.png">
+
+
+Some final results:
 
 from matlab:
 
