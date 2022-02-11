@@ -74,20 +74,68 @@ So here is the final result of this multi-scale aligning algorithm(just list one
 
 ![00125v](https://user-images.githubusercontent.com/34802668/153486955-ba986250-445c-4ba1-a296-5ac7ef3ab8b0.jpg)
 
+after the experiments, I found that for some images, the threhold-way could be better, but for some are not, and I deeply discover the edge itself, and found that, for some images which edges have black in white or white in black, this method would not be as high as expected, but for most cases, it worked well.
+
 2) to enhance contrast,I used the Histogram normalization.Formulation is showed below
 calculate formulation
 when the dtype is cv2.NORM_MINMAX, the formulation is showed below
 
-3) better features.I used the gradients which has been written in the transformation part.I have done some contrast experiments which for some features, I didn't use the gradients, and it turned out to work not as good as those which used with gradients
+https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190612234154746-1158486747.png![image](https://user-images.githubusercontent.com/34802668/153517482-6d3424aa-a1a4-4fe5-ac11-f583fa972f18.png)
+
+and it could gave us some lighter picture, just like that:
+
+<img width="349" alt="image" src="https://user-images.githubusercontent.com/34802668/153519073-b2d8ee44-b7a8-4edb-a45f-6f0f70142aa9.png">
+
+but I find that for some noisy pictures, this performed not so well, then I found that compared with global histogram equalization, adaptive histogram equalization will divide the image into non-overlapping small blocks and perform histogram equalization in each small block. However, if there is noise in the small block, it will have a great influence and need to suppress it by limiting contrast, that is, limiting contrast adaptive histogram equalization. If the limit contrast threshold is set to 40 and the occurrence of a pixel value is 45 times in the local histogram distribution, the additional 5 pixels will be removed and the average will be other pixel values.Just like that,
+
+<img width="349" alt="image" src="https://user-images.githubusercontent.com/34802668/153519349-15dc012f-7fb4-4f80-bc0d-be47c39e1f97.png">
+
+we can clearly know that the carpet becomes more clear, color would be better,
+
+after changing the parameter:
+
+<img width="349" alt="image" src="https://user-images.githubusercontent.com/34802668/153519537-8d570af7-ed6c-4712-b284-0d2ace0c0279.png">
+
+
+but I find that for some noisy pictures, this performed not so well, then I found that compared with global histogram equalization, adaptive histogram equalization will divide the image into non-overlapping small blocks and perform histogram equalization in each small block. However, if there is noise in the small block, it will have a great influence and need to suppress it by limiting contrast, that is, limiting contrast adaptive histogram equalization. If the limit contrast threshold is set to 40 and the occurrence of a pixel value is 45 times in the local histogram distribution, the additional 5 pixels will be removed and the average will be other pixel values.Just like that,
+
+more of that, I used different ways which are not linear, like gamma correction, some are good:
+
+![10131v](https://user-images.githubusercontent.com/34802668/153518682-36ac222f-2d6e-46ba-9afe-a6d73e583044.jpg)
+
+
+but for some images, this could not work well, just like that:
+
+<img width="353" alt="image" src="https://user-images.githubusercontent.com/34802668/153517933-6a774130-6630-433d-8c6e-43747d7d11d5.png">
+
+
+<img width="352" alt="image" src="https://user-images.githubusercontent.com/34802668/153518504-ff96a171-c5a7-4133-9bc6-263eff574835.png">
+
+so based on the results,I have fount that it is necessary to choose different algorithms according to different brightness and blur degree
+
+3) better features.I used the gradients which has been written in the transformation part.I have done some contrast experiments which for some features, I didn't use the gradients, and it turned out to work not as good as those which used with gradients.
 
 4) better colors: We can transform the color channel from BGR space to HSV or Ycrcb space.And sometimes the color in the image is needed to be enhanced, so the first thing that occured to my mind is to use the white balance algorithm which is taught in the class, but for different imgs,the same white balance algorithm can work very differently, so I tried to use different ways to implement the white balance. For example, after I have observed some pictures in the datasets, I found that for some images, the brightest part in the img is not always white, so based on that, I have found two white balanced algorithm, which needs to do the white spot detection and white spot adjustment.
-  Here are some results for using different algorithms:
+  Here are some results for using different algorithms(first one is the origin image):
 
 <img width="458" alt="image" src="https://user-images.githubusercontent.com/34802668/153515780-47dcfa94-94a9-4cfa-9e07-f90272ff8342.png">
 
+morever,I used it in the datasets, some could not work so well, just like the following:
+
+<img width="352" alt="image" src="https://user-images.githubusercontent.com/34802668/153518032-dfcbd608-c4ab-4af4-866f-89b643e9525d.png">
+
+some could act colder than the reality:
+
+<img width="352" alt="image" src="https://user-images.githubusercontent.com/34802668/153518119-9d5c0a07-1c66-42f6-a63d-f57bc1a9e1dc.png">
+
+<img width="352" alt="image" src="https://user-images.githubusercontent.com/34802668/153518583-d1dd1d62-9cfd-44f0-97ab-3c386584dfb8.png">
 
 
-5) better transformations.Just wrote in the transformation part,it can be shown in my code
+so, I run more tests on my white-balanced algorithms
+
+and after the experiments, I found that for some images which seem to be warmer than usual, we can use the first two algorithms, and for some images which seem to be colder, we can use the last three algorithms.Furthermore, we can adjust these algorithm to show cold or warm based on what we thought to be real.
+
+
 
 Some results:
 
