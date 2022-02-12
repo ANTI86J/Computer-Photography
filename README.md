@@ -167,6 +167,8 @@ better color:
 <img width="234" alt="image" src="https://user-images.githubusercontent.com/34802668/153524041-8d0fa1ae-6cb2-4b02-a908-63b80a3dcd7e.png">
 
 
+and I find it quite work, but for some images, I am not sure whether it is the issue of the original pictures or something else, the color of my result sometimes get very abnormal, unrealistic, and others don't have these issues.I have to adjust my algorithms to get more realistic one, so maybe I can't find an algorithm to solve all the older pictures
+
 Some final results:
 
 from matlab:
