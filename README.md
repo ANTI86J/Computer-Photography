@@ -19,11 +19,11 @@ if we want to use this, we must extract the points of interest, so in order to d
 
 <img width="374" alt="image" src="https://user-images.githubusercontent.com/34802668/153488456-e52289e0-8935-4829-a181-9ae193cb956c.png">
 
-and next I just need to use this coordinate to do the warping!In order to get a ampilied image, I made this woman a bit more fatterm, so that I could amplify some details more clearly
+and next I just need to use this coordinate to do the warping!In order to get a ampilied image, I made this woman a bit more 'fatter', so that I could amplify some details more clearly
 
 <img width="550" alt="image" src="https://user-images.githubusercontent.com/34802668/153491486-b331642a-cdb0-44ee-a689-4a60b59a35c1.png">
 
-it is just one of the projections I made to get a bigger view of the woman so I must stand some loss of the clear of the img, but in some other cases, I wouldn't do that, just show how I think and adjust that, for different cases, I use different projections
+it is just one of the projections I made to get a bigger view of the woman so I must stand some loss of the clear of the img, but in some other cases, I wouldn't do that, just show how I think and adjust that, for different cases, I use different projections,some works well.
 
 
 Another time I use image warp function is in the transformation of different color spaces, which I leave it in the next sections as belows.
@@ -42,6 +42,7 @@ This is the BGR view:
 This is the RGB view:
 
 <img width="550" alt="image" src="https://user-images.githubusercontent.com/34802668/153491486-b331642a-cdb0-44ee-a689-4a60b59a35c1.png">
+
 
 4.Multi-scale aligning algorithm 
 At first, I kinda don't understand the meaning of multi-scale aligning algorithm, after I finished the single-scale aligining, I just try to google what and how I can do to make it, then I find this one and use it.The key of the multi-scale aligning algorithm is a simple 3×3 matrix called Homography.And I checked and read the wikipedia related to this.(link:https://en.wikipedia.org/wiki/Homography),and I finally get that, but the math here needs some related knowledge, so I just made it more simple to explain how I do it.
